@@ -54,4 +54,9 @@ class TemperatureUnit
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->getNotation();
+    }
 }

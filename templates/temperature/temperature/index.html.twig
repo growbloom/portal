@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Temperature index{% endblock %}
+
+{% block body %}
+    <h1>Temperature index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Value</th>
+                <th>Measured_at</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for temperature in temperatures %}
+            <tr>
+                <td>{{ temperature.id }}</td>
+                <td>{{ temperature.value }}</td>
+                <td>{{ temperature.measuredAt ? temperature.measuredAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('temperature_temperature_show', {'id': temperature.id}) }}">show</a>
+                    <a href="{{ path('temperature_temperature_edit', {'id': temperature.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('temperature_temperature_new') }}">Create new</a>
+{% endblock %}

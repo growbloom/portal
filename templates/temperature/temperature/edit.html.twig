@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Temperature{% endblock %}
+
+{% block body %}
+    <h1>Edit Temperature</h1>
+
+    {{ include('temperature/temperature/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('temperature_temperature_index') }}">back to list</a>
+
+    {{ include('temperature/temperature/_delete_form.html.twig') }}
+{% endblock %}
